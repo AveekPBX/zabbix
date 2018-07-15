@@ -14,21 +14,14 @@ system "rm -rf $file";
 system "chmod 777 /etc/zabbix/zabbix-agentd.conf";
 my $filename = '/etc/zabbix/zabbix-agentd.conf';
 if (-e $filename) {
-print "File Exists!";
+print "File Exists!\n";
 }
 else {
-print "File Doesnt Exist";
+print "File Doesnt Exist\n";
 exit;
 }
-#system "rpm -ivh $file";
-#system "rm -rf $file";
-#system "sed -i '/Server=127.0.0.1/s/^/Server=pbx134.therealpbx.com #/g' /etc/zabbix/zabbix-agentd.conf";
 system "chmod 777 /etc/zabbix/zabbix-agentd.conf";
-system "sed -i s/Server=127.0.0.1/Server=pbx134.therealpbx.com/g /etc/zabbix/zabbix-agentd.conf";
-#system "sed -i '/Server=127.0.0.1/' /etc/zabbix/zabbix-agentd.conf";
-#system `sed -i '/Server=127.0.0.1/ Server=pbx134.therealpbx.com/' /etc/zabbix/zabbix-agentd.conf`;
-#system "perl -ei 's/Server=127.0.0.1/&  \n\Server=pbx134.therealpbx.com/' /etc/zabbix/zabbix-agentd.conf";
-#ServerActive=127.0.0.1
+system "sed -i s/Server=127.0.0.1/Server=domain.com/g /etc/zabbix/zabbix-agentd.conf";
 print "Enter Hostname: ";
 my $name = <STDIN>;
 chomp $name;
@@ -37,6 +30,5 @@ system "sed -i '/ServerActive=127.0.0.1/s/^/#/g' /etc/zabbix/zabbix-agentd.conf"
 print "Hostname is '$name'\n";
 print "Starting Zabbix-agent";
 my $service= `rczabbix-agentd start \n`;
-#print "Done\n";
 
 
