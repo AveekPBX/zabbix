@@ -21,9 +21,9 @@ print "File Doesnt Exist\n";
 exit;
 }
 system "chmod 777 /etc/zabbix/zabbix-agentd.conf";
-print "Zabbix Server=\n"
+print "Zabbix Server=\n";
 my $zabbixserver=<STDIN>;
-system "sed -i s/Server=127.0.0.1/Server=$zabbixserver/g /etc/zabbix/zabbix-agentd.conf";
+system "sed -i s/Server=127.0.0.1/Server=\$zabbixserver/g /etc/zabbix/zabbix-agentd.conf";
 print "Enter Hostname: ";
 my $name = <STDIN>;
 chomp $name;
@@ -32,5 +32,5 @@ system "sed -i '/ServerActive=127.0.0.1/s/^/#/g' /etc/zabbix/zabbix-agentd.conf"
 print "Hostname is '$name'\n";
 print "Starting Zabbix-agent";
 my $service= `rczabbix-agentd start \n`;
-
+print"\n";
 
