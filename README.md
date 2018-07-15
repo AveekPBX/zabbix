@@ -1,1 +1,1 @@
-# zabbix
+#Zabbix agent installation script for Suse.
